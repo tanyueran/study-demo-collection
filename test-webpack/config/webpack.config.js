@@ -11,8 +11,9 @@ const MyPlugin = require('../myPlugins/MyPlugin.js');
 const MyPlugin2 = require('../myPlugins/MyPlugin2.js');
 
 module.exports = {
+  mode: 'development',
   // 入口函数地址
-  entry: './src/main.js',
+  entry: './src/main.ts',
   // 输出
   output: {
     filename: 'bundle.js',
