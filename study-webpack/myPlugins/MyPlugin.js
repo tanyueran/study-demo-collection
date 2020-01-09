@@ -4,6 +4,10 @@
  * @Description: Webpack 通过 Plugin 机制让其更加灵活，以适应各种应用场景。
  * -------------：在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过
  */
+const fs = require('fs');
+const path = require('path');
+
+
 class MyPlugin {
   constructor(props) {
     console.log("我的插件被创建：");
@@ -25,8 +29,18 @@ class MyPlugin {
     compiler.hooks.done.tap('run', (params) => {
       console.log('》》》》》run=============')
     });
-    compiler.hooks.done.tap('beforeRun', (params) => {
-      console.log('》》》》》beforeRun=============')
+    compiler.hooks.done.tap('done', (params) => {
+      console.log('》》》》》done=============');
+      console.log("现在可以将文件上传到服务齐了==========");
+      // 获取 dist 下面的文件
+      fs.readdir(path.resolve(__dirname,'../dist'),(err,obj)=>{
+        console.log("========================")
+        if(err){
+          return console.log(err);
+        }
+        console.log(obj);
+        console.log("========================")
+      })
     });
 
   }

@@ -6,14 +6,8 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.config');
 
-// 清理 dist
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
 module.exports = merge(common, {
   mode: 'production',
-  plugins: [
-    new CleanWebpackPlugin.CleanWebpackPlugin(),
-  ],
 });
 
 
