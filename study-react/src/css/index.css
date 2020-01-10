@@ -1,12 +1,21 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-html,body{
-  height:100%;
+html, body {
+  height: 100%;
   font-size: 16px;
   margin: 0;
   padding: 0;
 }
 
+body:before {
+  content: '';
+  display: table;
+}
+
+
+.bar {
+  background-color: greenyellow;
+}
 
