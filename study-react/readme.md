@@ -5,9 +5,10 @@
 ## 注意
 babel升级到7后的
 ```text
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "babel-loader": "^8.0.6",
+      "@babel/core": "^7.7.7",
+      "@babel/plugin-proposal-class-properties": "^7.7.4",
+      "@babel/preset-env": "^7.7.7",
+      "@babel/preset-react": "^7.7.4",
+      "babel-loader": "^8.0.6",
 ```
 
