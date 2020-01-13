@@ -1,16 +1,19 @@
 import React from 'react'
+import {connect} from 'react-redux';
+
+import {setUserInfo} from "../../store/user/action";
 
 /*
 * home 页面
 * */
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props)
   }
 
   state = {
     num: 0,
-  }
+  };
 
   componentWillMount() {
     console.log('组件将要被挂载了')
@@ -38,18 +41,39 @@ export default class Home extends React.Component {
         num: ++state.num,
       }
     })
+  };
+
+  updateUserInfoHandler = () => {
+    this.props.dispatch(setUserInfo({
+      username: '张三',
+      password: 'password'
+    }));
+  };
+
+
+  static mapStateToProps(state) {
+    if (state.user !== undefined) {
+      return state.user;
+    }
+    return {};
   }
+
 
   render() {
     return (
       <div>
-        <h1>home</h1>
+        <h1>{this.props.username || '-'}-home</h1>
         <hr/>
         {this.state.num}
         <p>
           <button onClick={this.clickHandler}>计数</button>
         </p>
+        <p>
+          <button onClick={this.updateUserInfoHandler}>修改登录</button>
+        </p>
       </div>
     );
   }
 }
+
+export default connect(Home.mapStateToProps)(Home);

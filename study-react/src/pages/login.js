@@ -1,6 +1,8 @@
 import React from 'react'
+import {connect} from "react-redux";
+import {setUserInfo} from "../store/user/action";
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -26,6 +28,10 @@ export default class Login extends React.Component {
 
   loginHandler = (e) => {
     alert(this.state.username + '-' + this.state.password);
+    this.props.dispatch(setUserInfo({
+      username: this.state.username,
+      password: this.state.password,
+    }));
     this.props.history.push('/index')
   };
 
@@ -48,5 +54,6 @@ export default class Login extends React.Component {
       </p>
     </div>
   }
-
 }
+
+export default connect()(Login)
