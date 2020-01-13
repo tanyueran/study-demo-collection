@@ -25,10 +25,6 @@ export default class User extends React.Component {
     this.form = React.createRef();
   }
 
-  componentWillMount() {
-    console.log('生命周期函数：组件将要挂载');
-  }
-
   componentWillUnmount() {
     if (this.state.timer !== null) {
       clearInterval(this.state.timer);
@@ -37,7 +33,6 @@ export default class User extends React.Component {
   }
 
   componentDidMount() {
-    console.log('生命周期函数：组件已经挂载了');
     this.state.timer = setInterval(() => {
       this.setState((state, props) => {
         return {
@@ -45,8 +40,6 @@ export default class User extends React.Component {
         }
       });
     }, 1000);
-    console.log("form:");
-    console.log(this.form)
   }
 
   render() {
@@ -57,6 +50,7 @@ export default class User extends React.Component {
     console.log('render');
     return (<ThemeContext.Provider value={this.state.contextParams}>
       <h1>user</h1>
+      <hr/>
       <button onClick={this.toggleHandler}>切换主题</button>
       <div style={this.state.styleClass}>
         <p>现在的时间：{Date2String(this.state.time)}</p>
