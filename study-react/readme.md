@@ -13,6 +13,9 @@
 webpack
 react
 react-router
+redux
+
+详细请看package.json里面的依赖
 
 ```
 
