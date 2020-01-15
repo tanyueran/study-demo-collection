@@ -22,6 +22,7 @@ class MyPlugin {
      * 监听到 Webpack 广播出来的事件。
      * --查询文档查看相关的事件
      * --这些事件都是webpack运行的时候触发执行的
+     * --可以通过nodejs的一些api使用更多的操作
      */
     compiler.hooks.done.tap('afterPlugins', (params) => {
       console.log('》》》》》afterPlugins=============')
