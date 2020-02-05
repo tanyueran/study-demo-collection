@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh_cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{box-sizing:border-box;}
+		html,body{margin:0;padding:0;}
+
+		.container{
+			/*定义flex容器*/
+			display:flex;
+			border:1px solid yellow;
+			/*定义方法*/
+			flex-direction:row;
+			height:80px;
+		}
+
+		.item{
+			height:50px;
+			border:1px solid #909090;
+			flex-grow:1;/*获取父级容器剩余的，根据值，的和，最后瓜分*/
+			flex-shrink:0;/*父容器的宽度不够，定义压缩比例*/
+			flex-basis:0;/*作用类似于width*/
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">1</div>
+		<div class="item" style="align-self: center;">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+	</div>
+</body>
+</html>
