@@ -1,36 +1,76 @@
 <!doctype html>
 <html lang="zh_cn">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		*{box-sizing:border-box;}
-		html,body{margin:0;padding:0;}
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-		.container{
-			/*定义flex容器*/
-			display:flex;
-			border:1px solid yellow;
-			/*定义方法*/
-			flex-direction:row;
-			height:80px;
-		}
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
 
-		.item{
-			height:50px;
-			border:1px solid #909090;
-			flex-grow:1;/*获取父级容器剩余的，根据值，的和，最后瓜分*/
-			flex-shrink:0;/*父容器的宽度不够，定义压缩比例*/
-			flex-basis:0;/*作用类似于width*/
-		}
-	</style>
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .container {
+      /*定义flex容器*/
+      display: flex;
+      border: 1px solid yellow;
+      /*主轴的排序方向*/
+      flex-direction: row;
+      height: 90px;
+      /*设置交叉轴上的对方式，未设置高度，默认是充满父容器*/
+      /*有个多个主轴是使用align-content*/
+      align-items: center;
+      /*设置是否换行*/
+      flex-flow: wrap;
+    }
+
+    .item {
+      height: 50px;
+      border: 1px solid #909090;
+      /*获取父级容器剩余的，根据值，的和，最后瓜分*/
+      flex-grow: 1;
+      /*父容器的宽度不够，定义压缩比例*/
+      flex-shrink: 0;
+      /*作用类似于width*/
+      flex-basis: 0;
+      overflow: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav > li {
+      width: 40px;
+      border: 1px solid #e4393c;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-	<div class="container">
-		<div class="item">1</div>
-		<div class="item" style="align-self: center;">2</div>
-		<div class="item">3</div>
-		<div class="item">4</div>
-	</div>
+<h1>1、flex 的 基本使用</h1>
+<div class="container">
+  <div class="item">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid corporis culpa exercitationem id impedit iure
+    laudantium modi nemo nisi non odio officiis porro possimus quidem, recusandae similique veniam. Adipisci, sint.
+  </div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <ul class="item nav">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</div>
 </body>
 </html>
