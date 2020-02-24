@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh_cn">
+<head>
+  <meta charset="UTF-8">
+  <title>移动端vw适配</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+	/*
+	* 设计稿750px
+	* ? px    1vw
+	* ————  = ————
+	* 750px   100vw
+	*/
+	html{
+		font-size:14px;
+	}
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .container {
+		display:flex;
+		/*设计稿中*/
+		/*height:80px;*/
+		/* 80/750*100vw */
+		height:10.666666666666667vw;
+		line-height:10.666666666666667vw;
+	}
+
+	.container > div{
+		flex:1;
+		text-align:center;
+		font-size:4.266666666666667vw;
+	}
+  </style>
+</head>
+<body>
+<h1>移动端rem适配</h1>
+<div class="container">
+	<div style="background:red;">块1</div>
+	<div style="background:green;">块2</div>
+</div>
+</body>
+</html>
