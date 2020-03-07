@@ -1,0 +1,11 @@
+{
+  "name": "mongodb-nodejs",
+  "version": "1.0.0",
+  "description": "一个mongodb的demo",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "mongodb": "^3.5.4"
+  }
+}

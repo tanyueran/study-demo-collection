@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // 静态文件处理
 app.use(express.static('./public'));
 
+
 app.use('/api', [require('./routers/user.js'), require('./routers/list.js')])
 
 // 处理错误
