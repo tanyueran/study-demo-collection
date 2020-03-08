@@ -24,3 +24,4 @@
 4. [css](./study-css)
 5. [nodejs](./study-node)
 6. [mongodb](./study-mongodb)
+7. [es6](./study-es6)

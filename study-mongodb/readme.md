@@ -67,8 +67,8 @@
 
 ## 2. bin文件内容介绍
 
-| mongo            | 客户端程序，连接MongoDB              |
-| ---------------- | ------------------------------------ |
+| **mongo**        | **客户端程序，连接MongoDB**          |
+| :--------------- | :----------------------------------- |
 | **mongod**       | **服务端程序，启动MongoDB**          |
 | **mongodump**    | **备份程序**                         |
 | **mongoexport**  | **数据导出程序**                     |
@@ -78,7 +78,7 @@
 | **mongos**       | **数据分片程序，支持数据的横向扩展** |
 | **mongostat**    | **监视程序**                         |
 
-### 数据备份命令
+### **数据备份命令**
 
 ```
 mongodump -h localhost:27017 -d mydb -o E:\mongodb\beifen -u user -p password
@@ -89,7 +89,7 @@ mongodump -h localhost:27017 -d mydb -o E:\mongodb\beifen -u user -p password
 -p 密码
 ```
 
-### 数据恢复命令
+### **数据恢复命令**
 
 ```
 mongorestore -h localhost:27017 -u user -p password -d mydb E:\mongodb\beifen\mydb\user.bson
@@ -97,7 +97,9 @@ mongorestore -h localhost:27017 -u user -p password -d mydb E:\mongodb\beifen\my
 
 
 
-未完待续。。。。
+## **GridFS工具**
+
+**未完待续。。。。**
 
 
 
