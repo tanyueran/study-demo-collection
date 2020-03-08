@@ -7,6 +7,8 @@
 </head>
 
 <body>
+  <a href="/">home</a>
+  <br>
   <button onclick="getDataHandler()">获取数据</button>
   <ul id="box">
   </ul>
@@ -17,7 +19,9 @@
         let str = '';
         data.forEach((item, i, arr) => {
           str += `<li>
-            ${JSON.stringify(item)}
+            账号：${item.username} 
+            密码：${item.password}
+            <img width="100" src="/api/file?url=${item.file.url}" alt="头像">
           </li>`;
         });
         document.getElementById('box').innerHTML = str;
