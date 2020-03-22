@@ -14,13 +14,12 @@ import constant from '../../constant/index.js'
 // 创建模式 默认的是light
 const ThemeContext = constant.context;
 
-export default class User extends React.Component {
-  constructor(props, context) {
+export default class UserPage extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       time: new Date(),
       timer: null,
-      contextParams: constant.contextParams.dark,
     };
     this.form = React.createRef();
   }
@@ -48,10 +47,10 @@ export default class User extends React.Component {
     // 一个元素就像电影的单帧：它代表了某个特定时刻的 UI。
     // 组件有状态改变的话，render函数每次都会被执行
     console.log('render');
-    return (<ThemeContext.Provider value={this.state.contextParams}>
+    console.log(this.form)
+    return (<>
       <h1>user</h1>
       <hr/>
-      <button onClick={this.toggleHandler}>切换主题</button>
       <div style={this.state.styleClass}>
         <p>现在的时间：{Date2String(this.state.time)}</p>
         <Suspense fallback={<div>Loading...</div>}>
@@ -70,20 +69,6 @@ export default class User extends React.Component {
           }/>
         </Suspense>
       </div>
-    </ThemeContext.Provider>)
-  }
-
-  toggleHandler = (e) => {
-    this.setState(state => {
-      if (state.contextParams.theme === 'dark') {
-        return {
-          contextParams: constant.contextParams.light,
-        }
-      } else {
-        return {
-          contextParams: constant.contextParams.dark,
-        }
-      }
-    })
+    </>)
   }
 }

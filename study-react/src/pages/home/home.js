@@ -12,6 +12,7 @@ class Home extends React.Component {
   }
 
   state = {
+    a: 3,
     num: 0,
   };
 
@@ -64,6 +65,7 @@ class Home extends React.Component {
       <div>
         <h1>{this.props.username || '-'}-home</h1>
         <hr/>
+        a:{this.state.a}
         {this.state.num}
         <p>
           <button onClick={this.clickHandler}>计数</button>
