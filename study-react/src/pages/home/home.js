@@ -1,7 +1,30 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import {createStore} from 'redux'
 
 import {setUserInfo} from "../../store/user/action";
+
+
+// 测试单独使用redux
+const reducer = function (state = 0, action) {
+  switch (action.type) {
+    case '+':
+      return state + 1;
+    case '-':
+      return state - 1;
+    case 'rest':
+      return 0;
+    default:
+      return 0;
+  }
+};
+
+const countAction = (type) => {
+  return {type}
+};
+
+const store = createStore(reducer);
+
 
 /*
 * home 页面
@@ -17,7 +40,11 @@ class Home extends React.Component {
   };
 
   componentWillMount() {
-    console.log('组件将要被挂载了')
+    console.log('组件将要被挂载了');
+    // 订阅
+    store.subscribe(() => {
+      console.log(store.getState());
+    });
   }
 
   componentDidMount() {
@@ -72,6 +99,20 @@ class Home extends React.Component {
         </p>
         <p>
           <button onClick={this.updateUserInfoHandler}>修改登录</button>
+        </p>
+        <p>
+          <button onClick={() => {
+            store.dispatch(countAction('+'));
+          }}>测试rudex +
+          </button>
+          <button onClick={() => {
+            store.dispatch(countAction('-'));
+          }}>测试rudex -
+          </button>
+          <button onClick={() => {
+            store.dispatch(countAction('rest'));
+          }}>测试rudex rest
+          </button>
         </p>
       </div>
     );
