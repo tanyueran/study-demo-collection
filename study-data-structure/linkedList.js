@@ -2,7 +2,9 @@
  * 单向链表
  */
 
-// 链表项
+/*
+ * 链表项
+ */
 class Element {
   constructor(data) {
     this.data = data;
@@ -10,26 +12,31 @@ class Element {
   }
 }
 
-// 单项链表对象
+/*
+ * 单项链表对象
+ */
 class LinkedList {
   constructor() {
-    this.length = 0;
+    // 链表的头部
     this.head = null;
+    // 链表的元素个数
+    this.length = 0;
   }
 
   // 添加节点
   append(data) {
     let newNode = new Element(data);
+    // 原本是空链表
     if (this.length === 0) {
       this.head = newNode;
-    } else {
+    } else { // 不是空链表
       let current = this.head;
       while (current.next) {
         current = current.next;
       }
       current.next = newNode;
     }
-    this.length += 1;
+    ++this.length;
   }
 
   // 插入

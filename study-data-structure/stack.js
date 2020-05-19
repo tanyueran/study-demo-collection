@@ -25,6 +25,7 @@ Stack.prototype.toString = function () {
 
 /**
  * 基于栈实现十进制转换成二进制
+ * 算法描述：通过循环遍历 将数值对2取模 结果依次放入栈中
  *  */
 function Dec2Bin(num) {
   let s = new Stack();

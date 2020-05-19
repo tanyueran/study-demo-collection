@@ -1,5 +1,5 @@
 /*
-* 哈希函数
+* 哈希函数，求哈希code值
 * 1、将字符串转换成一个比较大的数值（霍纳算法）
 * 2、通过取余压缩数值
 * */
@@ -13,6 +13,7 @@ function hashFunc(str, length) {
 }
 
 // 质数判断 --- 低效率
+// 算法思想：直接循环遍历，2至本身-1 如果没有能被整除的则是质数
 function isPrime(num) {
   for (let i = 2; i < num - 1; i++) {
     if (num % i === 0) {
@@ -33,8 +34,11 @@ function isPrime2(num) {
   return true;
 }
 
-// 哈希表（拉链表和开放表的两种方式）
-// 下面的时拉链表的方式
+/*
+* 哈希表（拉链表和开放表的两种方式）
+* 下面的时 【拉链表（链地址法）】 的方式
+* 存在扩容，数据容量大于0.75时需要扩容，小于0.25时需要缩容
+* */
 class HashTable {
   constructor() {
     this.storage = [];
@@ -137,6 +141,7 @@ class HashTable {
   }
 
   // 哈希表扩容\缩容
+  // 思想：取出所有的数据重新hash 重新放入数据
   resize(limit) {
     console.log('容量改变了' + limit);
     let oldStorage = this.storage;

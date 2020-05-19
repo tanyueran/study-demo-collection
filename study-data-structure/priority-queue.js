@@ -2,7 +2,9 @@
  * 优先级队列
  */
 
-// 链表项
+/*
+ * 优先级队列的元素项
+ */
 class Element {
   // level值大的优先级高
   constructor(level, data) {
@@ -15,12 +17,15 @@ class Element {
   }
 }
 
-// 优先级队列
+/*
+ * 优先级队列
+ */
 class PriorityQueue {
   constructor() {
     this.q = [];
   }
 
+  // 进入时需要判断元素的优先级
   enter(level, data) {
     let node = new Element(level, data);
     if (this.q.length === 0) {
