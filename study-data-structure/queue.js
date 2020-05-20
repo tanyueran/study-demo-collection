@@ -18,6 +18,10 @@ class Queue {
     return this.q.length;
   }
 
+  isEmpty() {
+    return this.q.length === 0;
+  }
+
   getHead() {
     return this.q[0];
   }
@@ -59,5 +63,6 @@ function dodo(nameList, num) {
   return q.getHead();
 }
 
-console.log('最后的' + dodo(['张三', '李四', '赵五'], 3));
+// console.log('最后的' + dodo(['张三', '李四', '赵五'], 3));
 
+module.exports = Queue;
