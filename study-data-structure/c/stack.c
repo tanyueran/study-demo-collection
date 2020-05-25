@@ -29,6 +29,15 @@ void push(Statck *p, ElementType ele)
     (p->size)++;
 }
 
+// 弹出
+ElementType pop(Statck *p)
+{
+    ElementType ele = (p->content)[(p->size) - 1];
+    p->content = (ElementType *)realloc(p->content, sizeof(ElementType) * (p->size));
+    (p->size)--;
+    return ele;
+}
+
 // 输除栈内容
 void toString(Statck *p)
 {
@@ -52,6 +61,10 @@ void main()
     push(&s, 7);
     push(&s, 8);
     push(&s, 9);
+    toString(&s);
+    printf("pop one element\n");
+    ElementType ele = pop(&s);
+    printf("%d\n", ele);
     toString(&s);
     /* int *p = malloc(sizeof(int) * 6);
     p[0] = 0;
